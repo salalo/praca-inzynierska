@@ -19,7 +19,7 @@ contract Crowdfunding {
 
     uint256 public campaignsCount = 0;
 
-    function createCampign(
+    function createCampaign(
         address _beneficiary,
         string memory _title,
         string memory _description,
@@ -58,7 +58,7 @@ contract Crowdfunding {
         (bool sent, ) = payable(campaign.beneficiary).call{value: amount}("");
 
         if (sent) {
-            campaign.currentAmount += amount;
+            campaign.currentAmount = campaign.currentAmount + amount;
         }
     }
 
